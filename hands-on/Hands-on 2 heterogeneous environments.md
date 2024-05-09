@@ -1,6 +1,4 @@
-
-### README: DECICE Workshop – Part 2
-#### MQTT Data Aggregation and Collection at the Edge
+### MQTT Data Aggregation and Collection at the Edge
 
 #### Overview
 This guide details the steps for setting up and deploying MQTT data aggregators and collectors in a Kubernetes environment, specifically tailored for edge computing scenarios.
