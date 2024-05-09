@@ -5,10 +5,24 @@
 This guide provides instructions for building and deploying MQTT publisher and subscriber services using Podman and Kubernetes. Ensure you have the necessary permissions to execute these commands, as some may require `sudo` access.
 
 #### Prerequisites
-- Podman installed on your machine.
-- Access to a Kubernetes cluster.
+- Access to a Kubernetes cluster.(https://haicgu.github.io/access.html)
+    ```
+    <<Userid/password to be shared during the tutorial>>
+    ssh guoehi-dev
+    cd
+    mkdir .kube
+    cp ../kubernetes/config ~/.kube
+   ```
+- Check access to kubernetes cluster
+  ```
+  kubectl get nodes –A 
+   ```    
 - Login credentials for the GitHub Image Repository.
-
+  ```
+    <<to be shared during the tutorial>>
+   ```
+- Podman installed on your machine.
+  
 #### Setup Instructions
 
 1. **Navigate to Home Directory**
