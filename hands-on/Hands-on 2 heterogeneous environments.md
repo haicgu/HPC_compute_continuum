@@ -4,9 +4,23 @@
 This guide details the steps for setting up and deploying MQTT data aggregators and collectors in a Kubernetes environment, specifically tailored for edge computing scenarios.
 
 #### Prerequisites
-- Ensure Podman is installed on your machine.
-- Access to a Kubernetes cluster.
-- GitHub credentials to access private repositories.
+- Access to a Kubernetes cluster.(https://haicgu.github.io/access.html)
+    ```
+    <<Userid/password to be shared during the tutorial>>
+    ssh guoehi-dev
+    cd
+    mkdir .kube
+    cp ../kubernetes/config ~/.kube
+   ```
+- Check access to kubernetes cluster
+  ```
+  kubectl get nodes –A 
+   ```    
+- Login credentials for the GitHub Image Repository.
+  ```
+    <<to be shared during the tutorial>>
+   ```
+- Podman installed on your machine.
 
 #### Setup Instructions
 
