@@ -8,6 +8,7 @@ The stack consists of:
 - Node Exporter, as per-node metrics exporter
 - Alertmanager, as alerting service based on metrics events
 - Grafana, as metrics dashboard
+
 This stack can easily be deployed using the `kube-prometheus-stack` helm chart ( https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack ) and is a common monitoring stack for Kubernetes deployments.
 
 For this part of the hands-on you will interact with Grafana to discover the metrics stored in Prometheus, which were gathered by the Node Exporter.
@@ -44,6 +45,7 @@ The mapping to the nodes is as follows:
 - 20.0.0.26   cn05.guoehi.cluster (worker)
 - 20.0.5.22   cn06.guoehi.cluster (worker)
 - 20.0.7.11   cn07.guoehi.cluster (edge)
+
 The last node serves as our test edge node running KubeEdge.
 The node itself is a regular node of the cluster that is running KubeEdge instead of the regular Kubernetes stack.
 As an experimental addition for the tutorial there might be one or more additional node that reflect Raspberry-Pis, which we have brought to the ISC.
@@ -107,7 +109,7 @@ This brings you to a query builder similar to the one from the explore section.
 Insert `sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace="decice", pod=~".*YOUR_NAME.*"}) by (pod)` with `YOUR_NAME` replaced as earlier for the query and run the query.
 On the right you can find a menu with a lot of options to further customize the look of your query.
 Try setting under `Panel options` the `Title` to a name of your choice.
-Scroll down until you see `Standard options` and for `Unit` select ín the dropdown `Time` and then `seconds`.
+Scroll down until you see `Standard options` and for `Unit` select in the drop-down `Time` and then `seconds`.
 Then `Save` and `Apply` your changes in the top right to now see your dashboard.
 The dashboard should now contain one time-series graph for CPU time.
 
@@ -118,20 +120,24 @@ In the top right of your graph, find the three dot menu and under `More...` find
 You should now see your graph twice.
 For the new copy select the menu three dot menu again and then `Edit`.
 Back in the query editor find in the top right the menu for Visualizations, which currently reads `Time series`.
-Try switchting to a few other Visualizations such as
+Try switching to a few other Visualizations such as
 - Bar chart
 - Stat
 - Gauge
 - Table
 - Pie chart
 - Histogram
+
 For the Gauge visualization, also try adding a threshold by finding the `Thresholds` section and setting a Threshold to `0.0001`, which is equivalent to 100 µs.
+
 
 
 ### Outlook - Application Specific Metrics
 
+Something something ServiceMonitor PodMonitor.
+
 #### Closing Remarks
 
 PromQL and the Grafana dashboard may seem daunting but modern LLM system such as ChatGPT and LLaMA 3 are competent assistants for designing PromQL queries.
-Furtheremore, many example queries are available online or even through the default dashboards.
+Furthermore, many example queries are available online or even through the default dashboards.
 Grafana supports many more datasources besides just Prometheus such as InfluxDB and can be a valuable companion for any administrator.
