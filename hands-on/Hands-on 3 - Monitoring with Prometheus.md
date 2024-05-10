@@ -129,12 +129,41 @@ Try switching to a few other Visualizations such as
 - Histogram
 
 For the Gauge visualization, also try adding a threshold by finding the `Thresholds` section and setting a Threshold to `0.0001`, which is equivalent to 100 µs.
+When you are done `Save` and `Apply` your changes to return to your dashboard.
 
+#### Alerting
 
+Grafana also allows the creation of alerts for dashboards.
+One way to create a new rule is directly from a dashboard, for this select the three dot menu and under `More...` select `New alert rule`.
+This opens a new window for creating the conditions for a new alert.
 
-### Outlook - Application Specific Metrics
+Under `1. Enter alert rule name` set a new name for the alert or leave the existing one.
+Under `2. Define query and alert condition` a pipeline with three steps has been created for you.
+For `A` you should see your query that you used earlier to see cpu per pod.
+Then below under `Expressions` you should see `B Reduce` and `C Threshold`, with each using the previous component as `Input`.
+For `B` it should be set to `Function: Last` and `Mode: Strict`.
+For `C` a threshold needs to be defined, here you can use `0.0001` for `IS ABOVE` and click on `Preview`, which will render the query and evaluate the threshold.
 
-Something something ServiceMonitor PodMonitor.
+Next under `3. Set evaluation behavior` rules can be set for how often a rule needs to be evaluated and how long it needs to be triggered before firing an alert.
+Set the Evaluation group to `ISC2024` or set a new evaluation group.
+
+The following two sections `4. Configure labels and notifications` as well as `5. Add annotations` can be used to further customize behavior and set what `Contact points` and `Notification policies` to use.
+Grafana supports a wide range of integrations for `Contact points` including Email, Microsoft Teams, Slack and Webhooks as well as Alertmanager itself, which in turn supports further integrations and alert rules.
+`Notification policies` allow setting when an alert is send the first time and in what intervals to repeat the alert.
+Setting up `Contact points` and `Notification policies` goes beyond the scope of this tutorial.
+
+### Outlook
+
+#### Application Specific Metrics
+
+The above hands-on has demonstrated how to visualize the metrics captured by Prometheus through Node Exporter by default but what about application specific metrics?
+Many applications provide integrations with Prometheus but for self-developed applications it also possible to add metrics endpoints using the official client libraries (https://prometheus.io/docs/instrumenting/clientlibs/).
+
+However, exposing metrics is not enough as Prometheus needs to be told where to find the metrics in order to scrape them.
+In a dynamic environment such as Kubernetes, where the location and IP of pods running is not fixed, Prometheus needs to also be able to dynamically discover new scraping endpoints.
+
+The `kube-prometheus-stack` comes with two CRDs (Custom Resource Definitions) called `ServiceMonitor` and `PodMonitor`, which can be used to collect metrics from a number of `Services` via `ServiceMonitor` and a number of `Pods` using `PodMonitor`.
+See the tutorial from the official documentation for further details (https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/getting-started.md).
 
 #### Closing Remarks
 
