@@ -18,7 +18,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
    ```    
 - Login credentials for the GitHub Image Repository.
   ```
-    passwor TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
+    password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
    ```
 - Podman installed on your machine.
 
