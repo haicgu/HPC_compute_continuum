@@ -11,7 +11,7 @@ This guide provides instructions for building and deploying MQTT publisher and s
     ssh guoehi-dev
     cd
     mkdir .kube
-    cp ../kubernetes/config ~/.kube
+    cp /mnt/dev-lscratch/tutorial/config ~/.kube
    ```
 - Check access to kubernetes cluster
   ```
