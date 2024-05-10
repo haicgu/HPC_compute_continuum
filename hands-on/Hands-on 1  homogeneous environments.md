@@ -18,8 +18,8 @@ This guide provides instructions for building and deploying MQTT publisher and s
   kubectl get nodes –A 
    ```    
 - Login credentials for the GitHub Image Repository.
-  ```
-    <<to be shared during the tutorial>>
+     ```
+    password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
    ```
 - Podman installed on your machine.
   
