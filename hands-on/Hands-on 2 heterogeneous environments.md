@@ -10,7 +10,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
     ssh guoehi-dev
     cd
     mkdir .kube
-    cp ../kubernetes/config ~/.kube
+    cp /mnt/dev-lscratch/tutorial/config ~/.kube
    ```
 - Check access to kubernetes cluster
   ```
