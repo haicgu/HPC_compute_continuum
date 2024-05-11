@@ -81,7 +81,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
    - Check the logs of the pods to monitor operations:
      ```bash
      kubectl get pods -n decice
-     kubectl logs –n decice –f client_pod_name
+     kubectl logs -n decice -f client_pod_name
      ```
 
 5. **Cleanup Resources**
