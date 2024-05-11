@@ -87,4 +87,3 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 ### Note
 Replace placeholders such as `[pod_name]` with actual values from your Kubernetes cluster.
 
-This README is designed to guide you through the deployment process for the DECICE Workshop Part 2, focusing on edge computing setups. Adjust the instructions as necessary to match your specific configuration and environment requirements.
