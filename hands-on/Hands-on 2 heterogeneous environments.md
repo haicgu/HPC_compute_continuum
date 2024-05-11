@@ -33,7 +33,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
      ```
    - Clone the repository:
      ```bash
-     git clone https://github.com/rho770/oehi-cc-training.git ~/demo/
+     git clone https://github.com/haicgu/HPC_compute_continuum.git ~/demo/
      ```
    - Navigate to the demo folder and desired workflow:
      ```bash
