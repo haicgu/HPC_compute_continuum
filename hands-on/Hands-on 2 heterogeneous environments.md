@@ -21,6 +21,8 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
     password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
    ```
 - Podman installed on your machine.
+   - Podman rootless is already preinstalled on the `dev` node
+   - Running unprivileged Podman won't support storage on NFS. If you get warnings (or errors) about running on NFS, configure Podman to use local storage instead. E.g. on the `dev` node: `export XDG_DATA_HOME="/mnt/dev-lscratch/$USER/local_share"; mkdir -p "$XDG_DATA_HOME"`
 
 #### Setup Instructions
 

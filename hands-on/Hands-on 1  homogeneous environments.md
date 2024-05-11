@@ -2,7 +2,7 @@
 ### README: Container Deployment Instructions
 
 #### Overview
-This guide provides instructions for building and deploying MQTT publisher and subscriber services using Podman and Kubernetes. Ensure you have the necessary permissions to execute these commands, as some may require `sudo` access.
+This guide provides instructions for building and deploying MQTT publisher and subscriber services using Podman and Kubernetes.
 
 #### Prerequisites
 - Access to a Kubernetes cluster.(https://haicgu.github.io/access.html)
@@ -22,6 +22,8 @@ This guide provides instructions for building and deploying MQTT publisher and s
     password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
    ```
 - Podman installed on your machine.
+   - Podman rootless is already preinstalled on the `dev` node
+   - Running unprivileged Podman won't support storage on NFS. If you get warnings (or errors) about running on NFS, configure Podman to use local storage instead. E.g. on the `dev` node: `export XDG_DATA_HOME="/mnt/dev-lscratch/$USER/local_share"; mkdir -p "$XDG_DATA_HOME"`
 
 #### Setup Instructions
 
@@ -45,7 +47,7 @@ This guide provides instructions for building and deploying MQTT publisher and s
 
 5. **Login to GitHub Image Repository**
    ```bash
-   sudo podman login ghcr.io -u haicgu -p [TOKEN]
+   podman login ghcr.io -u haicgu -p [TOKEN]
    ```
    Replace `[TOKEN]` with your actual personal access token.
 
