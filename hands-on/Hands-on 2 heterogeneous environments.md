@@ -37,8 +37,13 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
      ```
    - Navigate to the demo folder and desired workflow:
      ```bash
-     cd ~/demo/workflow2
+     cd demo/hands-on/workflow-2
      ```
+   - Login to GitHub Image Repository**
+   ```bash
+   podman login ghcr.io -u haicgu -p [TOKEN]
+   ```
+   Replace `[TOKEN]` with your actual personal access token.
 
 2. **Build and Push Docker Images**
    - **Aggregator Image**
@@ -79,11 +84,14 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 
 4. **Monitoring and Logs**
    - Check the logs of the pods to monitor operations:
+   - Find the pod name of your client
      ```bash
      kubectl get pods -n decice
-     kubectl logs -n decice -f client_pod_name
      ```
-
+     - Check the logs of the client
+     ```bash
+     kubectl logs -n decice -f [client_pod_name]
+      ```
 5. **Cleanup Resources**
    - To remove deployed resources: MQTT aggregator, collector and client
      ```bash
