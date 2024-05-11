@@ -38,7 +38,7 @@ spec:
             limits:
               memory: 200Mi
               cpu: 200m
-        imagePullSecrets:
+      imagePullSecrets:
         - name: github-secret-haicgu
       restartPolicy: Always
       dnsPolicy: ClusterFirstWithHostNet
