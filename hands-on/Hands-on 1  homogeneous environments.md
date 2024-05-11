@@ -34,12 +34,12 @@ This guide provides instructions for building and deploying MQTT publisher and s
 
 2. **Clone the Repository**
    ```bash
-   git clone https://github.com/rho770/oehi-cc-training.git ~/demo/
+   git clone https://github.com/haicgu/HPC_compute_continuum.git ~/demo/
    ```
 
 3. **Navigate to the Project Directory**
    ```bash
-   cd ~/demo/workflow1
+   cd ~/demo/hands-on/workflow1
    ```
 
 4. **Optional: Check/Edit Python Code**
