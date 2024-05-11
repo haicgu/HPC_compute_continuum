@@ -15,14 +15,14 @@ This guide provides instructions for building and deploying MQTT publisher and s
    ```
 - Check access to kubernetes cluster
   ```
-  kubectl get nodes –A 
-   ```    
+  kubectl get nodes -A
+   ```
 - Login credentials for the GitHub Image Repository.
      ```
     password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
    ```
 - Podman installed on your machine.
-  
+
 #### Setup Instructions
 
 1. **Navigate to Home Directory**
@@ -84,15 +84,15 @@ This guide provides instructions for building and deploying MQTT publisher and s
 3. **Check the Logs**
    - **Find the Pods**
      ```bash
-     kubectl get pods –n decice
+     kubectl get pods -n decice
      ```
    - **Logs for Publisher**
      ```bash
-     kubectl logs –n decice –f [publisher_pod_name]
+     kubectl logs -n decice -f [publisher_pod_name]
      ```
    - **Logs for Subscriber**
      ```bash
-     kubectl logs –n decice –f [subscriber_pod_name]
+     kubectl logs -n decice -f [subscriber_pod_name]
      ```
 
 #### Cleanup
@@ -101,7 +101,7 @@ This guide provides instructions for building and deploying MQTT publisher and s
   ```bash
   envsubst < yaml/publisher.yaml | kubectl delete -f -
   ```
-  
+
 - **Undeploy the MQTT Subscriber**
   ```bash
   envsubst < yaml/subscriber.yaml | kubectl delete -f -

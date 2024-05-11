@@ -14,8 +14,8 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
    ```
 - Check access to kubernetes cluster
   ```
-  kubectl get nodes –A 
-   ```    
+  kubectl get nodes -A
+   ```
 - Login credentials for the GitHub Image Repository.
   ```
     password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
