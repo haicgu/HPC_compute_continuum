@@ -64,7 +64,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
        ```bash
        podman push ghcr.io/haicgu/"$USER"-collector:latest
        ```
-    - **Client Image**
+   - **Client Image**
      - Build the Docker image:
        ```bash
        podman build -f client.dockerfile . -t ghcr.io/haicgu/"$USER"-client-wf:latest
