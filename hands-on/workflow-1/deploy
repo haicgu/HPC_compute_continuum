@@ -1,0 +1,8 @@
+podman build -f publisher.dockerfile . -t ghcr.io/haicgu/"$USER"-publisher:latest
+podman build -f subscriber.dockerfile . -t ghcr.io/haicgu/"$USER"-subscriber:latest
+
+podman push ghcr.io/haicgu/"$USER"-publisher:latest
+podman push ghcr.io/haicgu/"$USER"-subscriber:latest
+
+envsubst < yaml/publisher.yaml | kubectl create -f - 
+envsubst < yaml/subscriber.yaml | kubectl create -f - 
