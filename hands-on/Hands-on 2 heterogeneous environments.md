@@ -59,26 +59,37 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
        ```bash
        podman push ghcr.io/haicgu/"$USER"-collector:latest
        ```
+    - **Client Image**
+     - Build the Docker image:
+       ```bash
+       podman build -f client.dockerfile . -t ghcr.io/haicgu/"$USER"-client-wf:latest
+       ```
+     - Push to the registry:
+       ```bash
+       podman push ghcr.io/haicgu/"$USER"-client-wf:latest
+       ```
 
 3. **Deploy on Kubernetes**
    - Apply the Kubernetes YAML files to deploy the aggregator and collector:
      ```bash
      envsubst < yaml/aggregator_cloud.yaml | kubectl create -f -
      envsubst < yaml/collector_edge.yaml | kubectl create -f -
+     envsubst < yaml/client.yaml | kubectl create -f -
      ```
 
 4. **Monitoring and Logs**
    - Check the logs of the pods to monitor operations:
      ```bash
      kubectl get pods -n decice
-     kubectl logs -n decice -f [pod_name]
+     kubectl logs –n decice –f client_pod_name
      ```
 
 5. **Cleanup Resources**
-   - To remove deployed resources:
+   - To remove deployed resources: MQTT aggregator, collector and client
      ```bash
-     kubectl delete -f yaml/aggregator_cloud.yaml
-     kubectl delete -f yaml/collector_edge.yaml
+     envsubst < yaml/aggregator_cloud.yaml | kubectl delete -f -
+     envsubst < yaml/collector_edge.yaml | kubectl delete -f -
+     envsubst < yaml/client.yaml | kubectl delete -f -    
      ```
 
 #### Additional Information
