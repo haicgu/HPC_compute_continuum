@@ -76,12 +76,12 @@ This guide provides instructions for building and deploying MQTT publisher and s
 
 1. **Deploy the MQTT Publisher**
    ```bash
-   envsubst < yaml/publisher.yaml | kubectl create -f -
+   envsubst < yaml/publisher.yaml | sed 's/isc24_/isc24-/g' | kubectl create -f -
    ```
 
 2. **Deploy the MQTT Subscriber**
    ```bash
-   envsubst < yaml/subscriber.yaml | kubectl create -f -
+   envsubst < yaml/subscriber.yaml | sed 's/isc24_/isc24-/g' | kubectl create -f -
    ```
 
 3. **Check the Logs**
@@ -102,12 +102,12 @@ This guide provides instructions for building and deploying MQTT publisher and s
 
 - **Undeploy the MQTT Publisher**
   ```bash
-  envsubst < yaml/publisher.yaml | kubectl delete -f -
+  envsubst < yaml/publisher.yaml | sed 's/isc24_/isc24-/g' | kubectl delete -f -
   ```
 
 - **Undeploy the MQTT Subscriber**
   ```bash
-  envsubst < yaml/subscriber.yaml | kubectl delete -f -
+  envsubst < yaml/subscriber.yaml | sed 's/isc24_/isc24-/g' | kubectl delete -f -
   ```
 
 #### Additional Information
