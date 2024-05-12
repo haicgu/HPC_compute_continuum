@@ -119,6 +119,12 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 1. Figure out, which code corresponds to which button
 2. Deploy an application that will subscribe to the vents from buttons, convert codes to colors and light up LED with the color of a pressed button
 
+   HINT: Modify the publisher of workflow-1 to make the LED glow the colors you wnat
+   ```
+    msg = f"red"
+    result = client.publish("isc24/led1", msg)
+    ```
+
 ## Possible task 2
 1. Figure out, which code corresponds to which button
 2. Deploy an application that will implement a game with color matching? The LED lights up with different random colors in a sequence, player is supposed to pres colored buttons in the same sequence
