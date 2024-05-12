@@ -103,6 +103,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 
 #### Additional Information
 - Review the YAML files to understand how the aggregator and collector are scheduled on the Kubernetes edge node.
+- Check the difference in the yaml files workflow-2/yaml/collector_edge.yaml workflow-1/yaml/publisher.yaml. What change is needed to run using KubeEdge on the Edge node?
 
 ### Note
 Replace placeholders such as `[pod_name]` with actual values from your Kubernetes cluster.
