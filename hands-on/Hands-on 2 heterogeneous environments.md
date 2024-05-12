@@ -44,8 +44,9 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
    podman login ghcr.io -u haicgu -p [TOKEN]
    ```
    Replace `[TOKEN]` with your actual personal access token.
+   password TOKEN can be found in /mnt/dev-lscratch/tutorial/passwords
 
-2. **Build and Push Docker Images**
+3. **Build and Push Docker Images**
    - **Aggregator Image**
      - Build the Docker image:
        ```bash
@@ -74,15 +75,15 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
        podman push ghcr.io/haicgu/"$USER"-client-wf:latest
        ```
 
-3. **Deploy on Kubernetes**
+4. **Deploy on Kubernetes**
    - Apply the Kubernetes YAML files to deploy the aggregator and collector:
      ```bash
-     envsubst < yaml/aggregator_cloud.yaml | kubectl create -f -
-     envsubst < yaml/collector_edge.yaml | kubectl create -f -
-     envsubst < yaml/client.yaml | kubectl create -f -
+     envsubst < yaml/aggregator_cloud.yaml | sed 's/-isc24_/-isc24-/g' | kubectl create -f -
+     envsubst < yaml/collector_edge.yaml | sed 's/-isc24_/-isc24-/g' | kubectl create -f -
+     envsubst < yaml/client.yaml | sed 's/-isc24_/-isc24-/g' | kubectl create -f -
      ```
 
-4. **Monitoring and Logs**
+5. **Monitoring and Logs**
    - Check the logs of the pods to monitor operations:
    - Find the pod name of your client
      ```bash
@@ -92,12 +93,12 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
      ```bash
      kubectl logs -n decice -f [client_pod_name]
       ```
-5. **Cleanup Resources**
+6. **Cleanup Resources**
    - To remove deployed resources: MQTT aggregator, collector and client
      ```bash
-     envsubst < yaml/aggregator_cloud.yaml | kubectl delete -f -
-     envsubst < yaml/collector_edge.yaml | kubectl delete -f -
-     envsubst < yaml/client.yaml | kubectl delete -f -    
+     envsubst < yaml/aggregator_cloud.yaml | sed 's/-isc24_/-isc24-/g' | kubectl delete -f -
+     envsubst < yaml/collector_edge.yaml | sed 's/-isc24_/-isc24-/g' | kubectl delete -f -
+     envsubst < yaml/client.yaml | sed 's/-isc24_/-isc24-/g' | kubectl delete -f -    
      ```
 
 #### Additional Information
