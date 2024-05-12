@@ -7,7 +7,7 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 - Access to a Kubernetes cluster.(https://haicgu.github.io/access.html)
     ```
     <<Userid/password to be shared during the tutorial>>
-    ssh guoehi-dev
+    ssh dev
     cd
     mkdir .kube
     cp /mnt/dev-lscratch/tutorial/config ~/.kube
