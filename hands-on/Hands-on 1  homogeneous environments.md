@@ -39,7 +39,7 @@ This guide provides instructions for building and deploying MQTT publisher and s
 
 3. **Navigate to the Project Directory**
    ```bash
-   cd ~/demo/hands-on/workflow1
+   cd ~/demo/hands-on/workflow-1
    ```
 
 4. **Optional: Check/Edit Python Code**
