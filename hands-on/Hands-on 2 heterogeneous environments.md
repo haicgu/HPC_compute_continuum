@@ -105,6 +105,25 @@ This guide details the steps for setting up and deploying MQTT data aggregators 
 - Review the YAML files to understand how the aggregator and collector are scheduled on the Kubernetes edge node.
 - Check the difference in the yaml files workflow-2/yaml/collector_edge.yaml workflow-1/yaml/publisher.yaml. What change is needed to run using KubeEdge on the Edge node?
 
+# Advanced exercise with on-site hardware
+
+## On-site devices
+
+* RBG LED - can be controlled by sending an MQTT message to the topic `isc24/led1`
+    * Possible formats:
+        1. `R,G,B`, where R,G,B are integers in range `0..255`
+        2. One of supported colors as a string - one of: ['red', 'green', 'blue', 'yellow', 'yelow', 'white', 'black']
+* Buttons - on press will send messages withe a button code to `isc24/buttons`
+
+## Possible task 1
+1. Figure out, which code corresponds to which button
+2. Deploy an application that will subscribe to the vents from buttons, convert codes to colors and light up LED with the color of a pressed button
+
+## Possible task 2
+1. Figure out, which code corresponds to which button
+2. Deploy an application that will implement a game with color matching? The LED lights up with different random colors in a sequence, player is supposed to pres colored buttons in the same sequence
+
+
 ### Note
 Replace placeholders such as `[pod_name]` with actual values from your Kubernetes cluster.
 
